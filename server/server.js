@@ -6,17 +6,20 @@ const app = express();
 
 const port = 3000;
 
-app.get('/', function (request, response) {
-  response.send('<h1>Hello, world!</h1>');
-});
+// Share any files inside the 'public' folder
+app.use(express.static('server/public'));
 
-app.get('/contact', function (req, res) {
-  res.send('<h1>Contact me at george.g.papagapitos@gmail.com</h1>');
-});
+// app.get('/', function (request, response) {
+//   response.send('<h1>Hello, world!</h1>');
+// });
 
-app.get('/about', function (req, res) {
-  res.send('<h2>I am ready to code on occasion!</h2>');
-});
+// app.get('/contact', function (req, res) {
+//   res.send('<h1>Contact me at george.g.papagapitos@gmail.com</h1>');
+// });
+
+// app.get('/about', function (req, res) {
+//   res.send('<h2>I am ready to code on occasion!</h2>');
+// });
 
 // Listen for network requests
 app.listen(port, function () {
