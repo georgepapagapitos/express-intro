@@ -30,4 +30,4 @@ function addQuote(quoteData) {
   return true;
 }
 
-module.exports = { getNextQuote, addQuote };
+module.exports = { getNextQuote, addQuote, quotesList: quotesData };
