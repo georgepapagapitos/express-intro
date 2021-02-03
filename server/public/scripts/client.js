@@ -42,5 +42,17 @@ function onSubmit(event) {
     quote: $('#quote-input').val(),
     author: $('#author-input').val(),
   };
-  console.log('newQuote', newQuote);
+
+  // POST quote data to server
+  $.ajax({
+    url: '/quotes',
+    method: 'POST',
+    data: { quote_to_add: newQuote },
+  })
+    .then(function (response) {
+      console.log('nice', response);
+    })
+    .catch(function (error) {
+      console.log('error', error);
+    });
 }
