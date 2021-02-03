@@ -1,12 +1,11 @@
-console.log('in client.js');
-
-$(document).ready(onReady);
+$(onReady);
 
 function onReady() {
-  console.log('jq');
-  // Grab that data from server
-  // GET /allTheQuotes
+  fetchQuotes();
+  $(document).on('submit', '#new-quote-form', onSubmit);
+}
 
+function fetchQuotes() {
   // AJAX:
   // Asynchronous Javascript and XML
   // Tool for making HTTP network requests
@@ -35,6 +34,13 @@ function onReady() {
     .catch(function () {
       console.log('error');
     });
+}
 
-  console.log('this will print before the quotes');
+function onSubmit(event) {
+  event.preventDefault();
+  let newQuote = {
+    quote: $('#quote-input').val(),
+    author: $('#author-input').val(),
+  };
+  console.log('newQuote', newQuote);
 }
